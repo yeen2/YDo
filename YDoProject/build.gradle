@@ -28,6 +28,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'org.json:json:20160810' // https://mvnrepository.com/artifact/org.json/json
 }
 
 tasks.named('test') {
