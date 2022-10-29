@@ -27,7 +27,7 @@ public class ApiFifa001Service {
 		urlBuilder.append("?" + URLEncoder.encode("matchtype","UTF-8") + "=" + URLEncoder.encode("50", "UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("offset","UTF-8") + "=" + URLEncoder.encode("0", "UTF-8")); /*�� ������ ��� ��*/
 		urlBuilder.append("&" + URLEncoder.encode("limit","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*�����ڵ�*/
-		urlBuilder.append("&" + URLEncoder.encode("orderby","UTF-8") + "=" + URLEncoder.encode("asc", "UTF-8")); /*����*/
+		urlBuilder.append("&" + URLEncoder.encode("orderby","UTF-8") + "=" + URLEncoder.encode("desc", "UTF-8")); /*����*/
 		
 		URL url = new URL(urlBuilder.toString());
 		System.out.println(url.toString());
