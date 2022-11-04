@@ -31,10 +31,27 @@ public class ApiUtil {
         conn.disconnect();
         
         return sb.toString();
+	}
+	
+	public static String connToXMLString(HttpURLConnection conn) throws IOException {
+		
+		BufferedReader rd;
+        if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+            rd = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+        } else {
+            rd = new BufferedReader(new InputStreamReader(conn.getErrorStream(), "UTF-8"));
+        }
+        StringBuilder sb = new StringBuilder();
+        String line;
+        while ((line = rd.readLine()) != null) {
+            sb.append(line);
+        }
+        rd.close();
+        conn.disconnect();
         
-//        JSONObject xmlJSONObj = XML.toJSONObject(sb.toString());
-//        String jsonPrettyPrintString = xmlJSONObj.toString(INDENT_FACTOR);
-//        
-//        return jsonPrettyPrintString;
+        JSONObject xmlJSONObj = XML.toJSONObject(sb.toString());
+        String jsonPrettyPrintString = xmlJSONObj.toString(INDENT_FACTOR);
+        
+        return jsonPrettyPrintString;
 	}
 }

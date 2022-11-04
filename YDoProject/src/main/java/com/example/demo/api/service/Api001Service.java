@@ -30,6 +30,6 @@ public class Api001Service {
         conn.setRequestProperty("Content-type", "application/json");
         System.out.println("Response code: " + conn.getResponseCode());
         
-        return ApiUtil.connToString(conn);
+        return ApiUtil.connToXMLString(conn);
 	}
 }
